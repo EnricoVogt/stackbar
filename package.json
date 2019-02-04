@@ -22,5 +22,9 @@
     "webpack-dev-server": "^3.1.9",
     "tslint": "^5.11.0",
     "tslint-webpack-plugin": "^1.2.2"
+  },
+  "repository": {
+    "type" : "git",
+    "url" : "https://github.com/EnricoVogt/stackbar.git"
   }
 }
