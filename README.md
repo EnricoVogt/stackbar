@@ -1,3 +1,4 @@
+[![Published on webcomponents.org](https://img.shields.io/badge/webcomponents.org-published-blue.svg)](https://www.webcomponents.org/element/@envo/stackbar)
 # ENVO-Stackbar
 
 A simple webcomponent to show a 100% stacked bar chart.
