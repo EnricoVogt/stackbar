@@ -15,7 +15,7 @@ npm i @envo/stackbar
 ```
 <custom-element-demo>
   <template>
-    <script src="dist/envo-stackbar.js"></script>
+    <script src="https://unpkg.com/@envo/stackbar/dist/envo-stackbar.js"></script>
     <envo-stackbar>
         <div value="12" color="red">1</div>
         <div value="25" color="indianred">2</div>
