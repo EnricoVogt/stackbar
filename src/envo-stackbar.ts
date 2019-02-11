@@ -1,4 +1,24 @@
+interface IValue { // todo: better name ...
+    value: number;
+    color: string;
+    title: string;
+}
+
 export class EnvoStackbar extends HTMLElement {
+
+    private _values: IValue[] = [];
+    private envoStackElement: any;
+    static get observedAttributes() { return ["values"]; }
+
+    public set values(values: IValue[]) {
+        this.setAttribute("values", JSON.stringify(values));
+        this._values = values;
+        this.update();
+    }
+
+    public get values() {
+        return this._values;
+    }
 
     constructor() {
         super();
@@ -8,22 +28,18 @@ export class EnvoStackbar extends HTMLElement {
             :host {display:block;}
             :host div.envo-stackbar {display:flex}
             :host div.envo-stackbar * {text-align:center}
-            ::slotted(*:first-child) {
+            :host div.envo-stackbar div:first-child {
                 border-radius:5px 0 0 5px;
             }
-            ::slotted(*:last-child) {
+            :host div.envo-stackbar div:last-child {
                 border-radius:0 5px 5px 0;
             }
         </style>
-        <div class="envo-stackbar">
-            <slot></slot>
-        </div>
+        <div class="envo-stackbar"></div>
         `;
         this.attachShadow({ mode: "open" });
         this.shadowRoot.appendChild(template.content.cloneNode(true));
-        this.shadowRoot.querySelector("slot").addEventListener("slotchange", () => {
-            this.update();
-        });
+        this.envoStackElement = this.shadowRoot.querySelector('.envo-stackbar');
     }
 
     protected connectedCallback() {
@@ -34,13 +50,19 @@ export class EnvoStackbar extends HTMLElement {
         //
     }
 
-    private getValue(element: Element): number {
-        return Number(element.getAttribute("value"));
+    protected attributeChangedCallback(name: string, oldValue: string, newValue: string) {
+        if (name === "values" && oldValue !== newValue) {
+            try {
+                this.values = JSON.parse(newValue);
+            } catch (exception) {
+                console.error(exception);
+            }
+        }
     }
 
-    private sum(elements: Element[]): number {
+    private sum(elements: IValue[]): number {
         return elements.reduce<number>((last, curr) => {
-            return last + this.getValue(curr);
+            return last + curr.value;
         }, 0);
     }
 
@@ -57,17 +79,22 @@ export class EnvoStackbar extends HTMLElement {
     }
 
     private update() {
-        const elements = Array.from<HTMLElement>(this.querySelectorAll("*"));
-        const sum = this.sum(elements);
+        console.log(this.values, 'update');
+        this.envoStackElement.childNodes.forEach((value:any) => {
+            this.removeChild(value);
+        })
 
-        elements.map((element) => {
+        const sum = this.sum(this.values);
+        this.values.forEach(value => {
+            const div = document.createElement("div");
+            div.textContent = value.title
             const styles = {
-                background: element.getAttribute("color") || "grey",
-                width: this.getBarPercentValue(this.getValue(element), sum) + "%",
+                background: value.color || 'grey',
+                width: this.getBarPercentValue(value.value, sum) + "%",
             };
-
-            this.setStyles(element, styles);
-        });
+            this.setStyles(div, styles);
+            this.envoStackElement.appendChild(div)
+        })
     }
 }
 
