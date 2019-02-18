@@ -12,32 +12,107 @@ https://enricovogt.github.io/stackbar/index.html
 npm i @envo/stackbar
 ```
 
-## Usage
+## DEMO
 
 <!--
 ```
 <custom-element-demo>
   <template>
     <script src="https://unpkg.com/@envo/stackbar/dist/envo-stackbar.js"></script>
-    <envo-stackbar>
-        <div value="12" color="red">1</div>
-        <div value="25" color="indianred">2</div>
-        <div value="99" color="grey">3</div>
-        <div value="120" color="lightgreen">4</div>
-        <div value="200" color="green">5</div>
-    </envo-stackbar>
+    <script>
+      const envoStackbarElement = document.querySelector('#envo-stackbar');
+    
+      envoStackbarElement.showLegend = true;
+      envoStackbarElement.values = [
+        {
+          value:12,
+          title:"1",
+          styles: { 
+            backgroundColor: 'red' 
+          }
+        },
+        {
+          value:12,
+          title:"2",
+          styles: {
+            backgroundColor: 'indianred'
+          }
+        },
+        {
+          value:4,
+          title:"3",
+          styles: {
+            backgroundColor: 'orange'
+          }
+        },
+        {
+          value:5,
+          title:"4",
+          styles: {
+            backgroundColor: 'lightgreen'
+          }
+        },
+        {
+          value:24,
+          title:"5",
+          styles: {
+            backgroundColor: 'green'
+          }
+        },
+      ];
+    </script>
+    <envo-stackbar id="envo-stackbar"></envo-stackbar>
   </template>
 </custom-element-demo>
 ```
 -->
+
+## Usage
+
 ```html
-<envo-stackbar>
-    <div value="12" color="red">1</div>
-    <div value="25" color="indianred">2</div>
-    <div value="99" color="grey">3</div>
-    <div value="120" color="lightgreen">4</div>
-    <div value="200" color="green">5</div>
-</envo-stackbar>
+<script>
+  const envoStackbarElement = document.querySelector('#envo-stackbar');
+
+  envoStackbarElement.showLegend = true;
+  envoStackbarElement.values = [
+    {
+      value:12,
+      title:"1",
+      styles: { 
+        backgroundColor: 'red' 
+      }
+    },
+    {
+      value:12,
+      title:"2",
+      styles: {
+        backgroundColor: 'indianred'
+      }
+    },
+    {
+      value:4,
+      title:"3",
+      styles: {
+        backgroundColor: 'orange'
+      }
+    },
+    {
+      value:5,
+      title:"4",
+      styles: {
+        backgroundColor: 'lightgreen'
+      }
+    },
+    {
+      value:24,
+      title:"5",
+      styles: {
+        backgroundColor: 'green'
+      }
+    },
+  ];
+</script>
+<envo-stackbar id="envo-stackbar"></envo-stackbar>
 ```
 
 
