@@ -1,5 +1,6 @@
 const path = require('path');
 const TSLintPlugin = require('tslint-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin')
 
 module.exports = {
   entry: './src/envo-stackbar.ts',
@@ -22,11 +23,14 @@ module.exports = {
   devServer: {
     hot: true,
     watchContentBase: true,
-    contentBase: 'dev'
+    contentBase: 'dist'
   },
   plugins: [
     new TSLintPlugin({
-        files: ['./src/**/*.ts']
-    })
+      files: ['./src/**/*.ts']
+    }),
+    new CopyWebpackPlugin([{
+      from: 'index.html', to: 'index.html' 
+    }])
   ]
 };
