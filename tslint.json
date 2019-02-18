@@ -5,7 +5,8 @@
     ],
     "jsRules": {},
     "rules": {
-        "no-console": false
+        "no-console": [true, "log", "info"],
+        "variable-name": [true, "ban-keywords", "check-format", "allow-leading-underscore"]
     },
     "rulesDirectory": []
 }
