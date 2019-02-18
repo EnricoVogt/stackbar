@@ -1,9 +1,113 @@
-<h1>ENVO-Stackbar - Demo</h1>
-<envo-stackbar>
-    <div value="12" color="red">1</div>
-    <div value="25" color="indianred">2</div>
-    <div value="99" color="grey">3</div>
-    <div value="120" color="lightgreen">4</div>
-    <div value="200" color="green">5</div>
-</envo-stackbar>
-<script src="https://unpkg.com/@envo/stackbar/dist/envo-stackbar.js"></script>
+<!doctype html>
+<html>
+  <head>
+    <title>Stackbar</title>
+  </head>
+  <body>
+    <h1>ENVO-STACKBAR DEMO</h1>
+    <p>A simple web component that displays a 100% stacked bar chart..</p>
+    <h2>Usage</h2>
+    <h3>Option 1.)</h3>
+    <p>Pass values as attribute:</p>
+    <pre>
+      <code class="html">
+          &lt;envo-stackbar id="envo-stackbar-0" values='[{"value":24,"title":"Yes","styles":{ "backgroundColor": "green", "color":"#fff" }},{"value":12,"title":"No","styles":{ "backgroundColor": "red" }}]'&gt;&lt;/envo-stackbar&gt;
+      </code>
+    </pre>
+    <envo-stackbar id="envo-stackbar-0" values='[{"value":24,"title":"Yes","styles":{ "backgroundColor": "green", "color":"#fff" }},{"value":12,"title":"No","styles":{ "backgroundColor": "red" }}]'></envo-stackbar>
+
+    <h3>Option 2.)</h3>
+    <p>Pass values as property</p>
+    <pre>
+      <code class="javascript">
+        const envoStackbarElement = document.querySelector('#envo-stackbar-1');
+      
+        envoStackbarElement.showLegend = true;
+        envoStackbarElement.values = [
+          {
+            value:12,
+            title:"1",
+            styles: { backgroundColor: 'red' }
+          },
+          {
+            value:12,
+            title:"2",
+            styles: {
+              backgroundColor: 'indianred'
+            }
+          },
+          {
+            value:4,
+            title:"3",
+            styles: {
+              backgroundColor: 'orange'
+            }
+          },
+          {
+            value:5,
+            title:"4",
+            styles: {
+              backgroundColor: 'lightgreen'
+            }
+          },
+          {
+            value:24,
+            title:"5",
+            styles: {
+              backgroundColor: 'green'
+            }
+          },
+        ]
+      </code>
+    </pre>
+    <envo-stackbar id="envo-stackbar-1"></envo-stackbar>
+    <script src="envo-stackbar.js"></script>
+    <script>
+
+
+      const envoStackbarElement = document.querySelector('#envo-stackbar-1');
+      
+      envoStackbarElement.showLegend = true
+      envoStackbarElement.values = [
+        {
+          value:12,
+          title:"1",
+          styles: {
+            backgroundColor: 'red'
+          }
+        },
+        {
+          value:12,
+          title:"2",
+          styles: {
+            backgroundColor: 'indianred'
+          }
+        },
+        {
+          value:4,
+          title:"3",
+          styles: {
+            backgroundColor: 'orange'
+          }
+        },
+        {
+          value:5,
+          title:"4",
+          styles: {
+            backgroundColor: 'lightgreen'
+          }
+        },
+        {
+          value:24,
+          title:"5",
+          styles: {
+            backgroundColor: 'green'
+          }
+        },
+      ]
+    </script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.14.2/styles/default.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.14.2/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+  </body>
+</html>
