@@ -3,9 +3,6 @@
 
 A simple webcomponent to show a 100% stacked bar chart.
 
-## DEMO
-https://enricovogt.github.io/stackbar/index.html
-
 ## Installation
 
 ```
@@ -13,6 +10,7 @@ npm i @envo/stackbar
 ```
 
 ## DEMO
+https://enricovogt.github.io/stackbar/index.html
 
 <!--
 ```
