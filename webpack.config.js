@@ -30,7 +30,12 @@ module.exports = {
       files: ['./src/**/*.ts']
     }),
     new CopyWebpackPlugin([{
-      from: 'index.html', to: 'index.html' 
+      from: 'index.html', 
+      to: 'index.html',
+      transform (content) {
+        // change path
+        return Buffer.from(content.toString('utf8').replace('https://unpkg.com/@envo/stackbar/dist/envo-stackbar.js', './envo-stackbar.js'))
+      }
     }])
   ]
 };

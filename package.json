@@ -9,6 +9,7 @@
   "scripts": {
     "dev": "webpack-dev-server --hot --inline",
     "build": "webpack",
+    "publish": "npm run build && npm publish",
     "tslint": "tslint --init",
     "tsc": "tsc"
   },
