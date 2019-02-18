@@ -1,6 +1,6 @@
 {
   "name": "@envo/stackbar",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "stackbar",
   "main": "dist/envo-stackbar.js",
   "files": [
